@@ -25,16 +25,17 @@ export default function NavBar() {
     <Navbar bg="light" variant="light">
       <Container>
         <Navbar.Brand href="#home">Budgeting App</Navbar.Brand>
-        <Link to="/transactions">
+        
         <Button variant="outline-info">
-            View All
+        <Link to="/transactions"> View All</Link>
           </Button>
-          </Link>
-          <Link to="/transactions/new">
+          
+          
         <Button variant="outline-info" href="#">
-            New Transaction
+        <Link to="/transactions/new">New Transaction
+        </Link>
           </Button>
-          </Link>
+          
    
         <Button variant="primary">
           Bank av $$: <Badge bg="secondary">{ amountAvailable > 0 
