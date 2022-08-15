@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { currencyFormat } from "../utilities.js";
+// import { currencyFormat } from "../utilities.js";
 
 const API = process.env.REACT_APP_API_URL
 
@@ -15,6 +15,7 @@ export default function EditTransaction() {
     name: "",
     amount: "",
     from: "",
+    category: "",
     
   });
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function EditTransaction() {
       .get(`${API}/transactions/${index}`)
       .then((response) => setTransaction(response.data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [index]);
 
   const updateTransaction = () => {
     axios
@@ -67,13 +68,13 @@ export default function EditTransaction() {
           onChange={handleInputChange}
         />
         <br />
-        <label htmlFor="amount">Amount:</label>
+        <label htmlFor="amount">Category:</label>
         <input
-          id="amount"
-          type="number"
-          name="amount"
-          value={currencyFormat.format(transaction.amount)}
-          placeholder="0.00" // get currencyinput add on
+          id="category"
+          type="text"
+          name="category"
+          value={transaction.category}
+          placeholder="Category"
           onChange={handleInputChange}
         />
         <br />
@@ -81,11 +82,22 @@ export default function EditTransaction() {
         <input
           id="from"
           type="text"
+          value={transaction.from}
+          placeholder="From"
           onChange={handleInputChange}
-          checked={transaction.from}
+         
         />
         <br />
-       
+        <label htmlFor="amount">Amount:</label>
+        <input
+          id="amount"
+          type="number"
+          name="amount"
+          value={transaction.amount}
+          placeholder="0.00" // get currencyinput add on
+          onChange={handleInputChange}
+        />
+       <br />
         <button type="submit" >Update this Item</button>
       </form>
       <Link to={`/transactions/${index}`}>

@@ -27,13 +27,19 @@ function ShowTransaction() {
   };
   return (
     <article>
-      <h6>{transaction.date}</h6>
-      <h5>
-        <span>{transaction.name}</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </h5>
-      <h6>{transaction.category}</h6>
-      <p>{transaction.from}</p>
+      <div className="show-details">
+        <span>
+          <h6>Date: {transaction.date}</h6></span>
+        <span>
+          <h5>Transaction: {transaction.name}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></span>
+        <span>
+          <h6>Category: {transaction.category}</h6></span>
+        <span>
+          <h5>From: {transaction.from}</h5></span>
+          <span>
+          <h5>Amount: {transaction.amount}</h5></span>
+      </div>
       <div className="showNavigation">
         <div>
           <Link to={`/transactions`}>
@@ -46,7 +52,9 @@ function ShowTransaction() {
           </Link>
         </div>
         <div>
+        <Link to={`/transactions`}>
           <button onClick={handleDelete}>Delete</button>
+          </Link>
         </div>
       </div>
     </article>

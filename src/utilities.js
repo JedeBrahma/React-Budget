@@ -4,5 +4,5 @@ export const currencyFormat = new Intl.NumberFormat(undefined, {
     style: "currency",
     minimumFractionDigits: 0,
 });
-// export const date = new Intl.DateTimeFormat('en-US').format(date);
+
 
