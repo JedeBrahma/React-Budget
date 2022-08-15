@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { currencyFormat } from "../utilities.js";
 
 const API = process.env.REACT_APP_API_URL

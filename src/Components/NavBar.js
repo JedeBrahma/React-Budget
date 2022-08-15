@@ -8,6 +8,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 
+const API = process.env.REACT_APP_API_URL;
+
 export default function NavBar() {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
@@ -32,8 +34,8 @@ export default function NavBar() {
         </Nav>
         <Button variant="primary">
           Bank av $$: <Badge bg="secondary">{ amountAvailable > 0 
-          ? <span className="positively">${totalAmount.toFixed(2)}</span>
-          : <span className="negatively">${totalAmount.toFixed(2)}</span>  }</Badge>
+          ? <span className="positively">${amountAvailable.toFixed(2)}</span>
+          : <span className="negatively">${amountAvailable.toFixed(2)}</span>  }</Badge>
           <span className="visually-hidden">avail amt</span>
         </Button>
         {/* <Navbar.Brand>$$ Available</Navbar.Brand> */}
