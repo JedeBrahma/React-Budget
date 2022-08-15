@@ -25,6 +25,9 @@ export default function NewTransaction() {
   const handleInputChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
+  const handleInputNumber = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: Number(event.target.value) });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,7 +79,7 @@ export default function NewTransaction() {
           type="number"
           value={transaction.amount}
           placeholder="Amount" 
-          onChange={handleInputChange}
+          onChange={handleInputNumber}
         />
         <br />
         <button type="submit">Create New Trans</button>

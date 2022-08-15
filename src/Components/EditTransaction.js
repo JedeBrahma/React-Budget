@@ -13,7 +13,7 @@ export default function EditTransaction() {
   const [transaction, setTransaction] = useState({
     date: "",
     name: "",
-    amount: "",
+    amount: 0,
     from: "",
     category: "",
     
@@ -38,7 +38,9 @@ export default function EditTransaction() {
   const handleInputChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
-
+  const handleInputNumber = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: Number(event.target.value) });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     updateTransaction();
@@ -94,8 +96,8 @@ export default function EditTransaction() {
           type="number"
           name="amount"
           value={transaction.amount}
-          placeholder="0.00" // get currencyinput add on
-          onChange={handleInputChange}
+          placeholder="Amount" // get currencyinput add on
+          onChange={handleInputNumber}
         />
        <br />
         <button type="submit" >Update this Item</button>
