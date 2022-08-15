@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+// import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
@@ -25,17 +25,17 @@ export default function NavBar() {
     <Navbar bg="light" variant="light">
       <Container>
         <Navbar.Brand href="#home">Budgeting App</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="/transactions">View All</Nav.Link>
-
-          <Button variant="outline-info" href="#">
+        <Button variant="outline-info" href="#">
+            <Link to="/transactions">View All</Link>
+          </Button>
+        <Button variant="outline-info" href="#">
             <Link to="/transactions/new">New Transaction</Link>
           </Button>
-        </Nav>
+   
         <Button variant="primary">
           Bank av $$: <Badge bg="secondary">{ amountAvailable > 0 
-          ? <span className="positively">${amountAvailable.toFixed(2)}</span>
-          : <span className="negatively">${amountAvailable.toFixed(2)}</span>  }</Badge>
+          ? <span className="adding">${amountAvailable.toFixed(2)}</span>
+          : <span className="subtracting">${amountAvailable.toFixed(2)}</span>  }</Badge>
           <span className="visually-hidden">avail amt</span>
         </Button>
         {/* <Navbar.Brand>$$ Available</Navbar.Brand> */}
