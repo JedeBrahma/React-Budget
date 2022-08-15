@@ -10,16 +10,15 @@ export default function NewTransaction() {
   const [transaction, setTransaction] = useState({
     date: "",
     name: "",
-    amount: "0.00",
     from: "",
     category: "",
-    
+    amount: 0,
   });
   const navigate = useNavigate();
 
   const addTransaction = () => {
     axios.post(`${API}/transactions`, transaction)
-      .then((res) => {navigate(`/transactions`)}) 
+      .then((response) => navigate(`/transactions`)) 
       .catch((error) => {console.error(error)})
   };
 
@@ -76,7 +75,7 @@ export default function NewTransaction() {
           id="amount"
           type="number"
           value={transaction.amount}
-          placeholder="0.00" 
+          placeholder="Amount" 
           onChange={handleInputChange}
         />
         <br />
