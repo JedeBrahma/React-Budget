@@ -14,7 +14,7 @@ function Transactions() {
         axios.get(`${API}/transactions`)
         .then((response) => { setTransactions(response.data)})
         .catch((error) => { console.log(error)})
-    }, [])
+    }, []);
   return (
     <div className="Transactions">    
     <section>

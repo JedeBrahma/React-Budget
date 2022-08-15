@@ -100,7 +100,7 @@ export default function EditTransaction() {
        <br />
         <button type="submit" >Update this Item</button>
       </form>
-      <Link to={`/transactions/${index}`}>
+      <Link to={`/transactions`}>
         <button>Back</button>
       </Link>
     </div>

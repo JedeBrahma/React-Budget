@@ -74,7 +74,7 @@ export default function NewTransaction() {
         <label htmlFor="amount">Amount:</label>
         <input
           id="amount"
-          type= "number"
+          type="number"
           value={transaction.amount}
           placeholder="0.00" 
           onChange={handleInputChange}

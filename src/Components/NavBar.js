@@ -25,7 +25,7 @@ export default function NavBar() {
     <Navbar bg="light" variant="light">
       <Container>
         <Navbar.Brand href="#home">Budgeting App</Navbar.Brand>
-        <Button variant="outline-info" href="#">
+        <Button variant="outline-info">
             <Link to="/transactions">View All</Link>
           </Button>
         <Button variant="outline-info" href="#">
