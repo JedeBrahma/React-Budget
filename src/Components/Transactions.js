@@ -4,7 +4,7 @@ import Transaction from "./Transaction.js";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
+// console.log(API);
 
 
 function Transactions() {
