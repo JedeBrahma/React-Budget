@@ -9,7 +9,7 @@ function Transaction({ transaction, index }) {
     <ListGroup horizontal>
       <ListGroup.Item>Date: {transaction.date}</ListGroup.Item>
 
-      <ListGroup.Item>Name:{"  "}
+      <ListGroup.Item>Name:
         <Link to={`/transactions/${index}`}> {transaction.name}</Link>
       </ListGroup.Item>
 

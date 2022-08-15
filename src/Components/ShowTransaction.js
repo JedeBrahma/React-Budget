@@ -16,7 +16,7 @@ function ShowTransaction() {
     axios
       .get(`${API}/transactions/${index}`)
       .then((response) => setTransaction(response.data))
-      .catch((error) => navigate(`/404`));
+      .catch((error) => console.log(error));
   }, [index]);
 
   const handleDelete = () => {

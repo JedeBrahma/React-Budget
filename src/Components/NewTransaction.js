@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { currencyFormat } from "../utilities.js";
+// import { currencyFormat } from "../utilities.js";
 
 const API = process.env.REACT_APP_API_URL
 
@@ -12,6 +12,7 @@ export default function NewTransaction() {
     name: "",
     amount: "0.00",
     from: "",
+    category: "",
     
   });
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ export default function NewTransaction() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Date:</label>
+        <label htmlFor="date">Date:</label>
         <input
           id="date"
           value={transaction.date}
@@ -54,15 +55,6 @@ export default function NewTransaction() {
           onChange={handleInputChange}
         />
         <br />
-        <label htmlFor="amount">Amount:</label>
-        <input
-          id="amount"
-          type= "number"
-          value={currencyFormat.format(transaction.amount)}
-          placeholder="0.00" 
-          onChange={handleInputChange}
-        />
-        <br />
         <label htmlFor="from">From:</label>
         <input
           id="from"
@@ -71,9 +63,30 @@ export default function NewTransaction() {
           checked={transaction.from}
         />
         <br />
-       
+        <label htmlFor="category">Category:</label>
+        <input
+          id="category"
+          type="text"
+          onChange={handleInputChange}
+          checked={transaction.category}
+        />
+        <br />
+        <label htmlFor="amount">Amount:</label>
+        <input
+          id="amount"
+          type= "number"
+          value={transaction.amount}
+          placeholder="0.00" 
+          onChange={handleInputChange}
+        />
+        <br />
         <button type="submit">Create New Trans</button>
       </form>
+      <div>
+          <Link to={`/transactions`}>
+            <button>Back</button>
+          </Link>
+        </div>
     </div>
   );
 }
